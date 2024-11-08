@@ -1,0 +1,30 @@
+{
+  "namespace": "com.epam.jmp.protocols.avro.example",
+  "type": "record",
+  "name": "User",
+  "logicalType": "User",
+  "aliases": ["User"],
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "default": "NO_NAME"
+    },
+    {
+      "name": "id",
+      "type": [
+        "int",
+        "null"
+      ],
+      "default": 0
+    },
+    {
+      "name": "favorite_color",
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": "NO_NAME"
+    }
+  ]
+}

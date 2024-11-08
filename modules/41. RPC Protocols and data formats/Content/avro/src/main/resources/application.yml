@@ -1,0 +1,61 @@
+server:
+  port: 9000
+spring:
+  kafka:
+    topic:
+      avro: my-test-topic
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_USER}" password="${KAFKA_PASSWORD}";
+      session:
+        timeout:
+          ms: 45000
+      bootstrap.servers: ${KAFKA_HOST}
+      basic:
+        auth:
+          credentials.source: USER_INFO
+          user.info: ${KAFKA_REGISTRY_USER}:${KAFKA_REGISTRY_PASSWORD}
+    bootstrap.servers: ${KAFKA_HOST}
+    consumer:
+      bootstrap.servers: ${KAFKA_HOST}
+      group.id: group_id
+      auto.offset.reset: earliest
+      key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_USER}" password="${KAFKA_PASSWORD}";
+      schema:
+        registry:
+          url: ${KAFKA_REGISTRY_HOST}
+      basic:
+        auth:
+          credentials.source: USER_INFO
+          user.info: ${KAFKA_REGISTRY_USER}:${KAFKA_REGISTRY_PASSWORD}
+      specific:
+        avro:
+          reader: true
+    producer:
+      bootstrap.servers: ${KAFKA_HOST}
+      key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="${KAFKA_USER}" password="${KAFKA_PASSWORD}";
+      schema:
+        registry:
+          url: ${KAFKA_REGISTRY_HOST}
+      basic:
+        auth:
+          credentials.source: USER_INFO
+          user.info: ${KAFKA_REGISTRY_USER}:${KAFKA_REGISTRY_PASSWORD}

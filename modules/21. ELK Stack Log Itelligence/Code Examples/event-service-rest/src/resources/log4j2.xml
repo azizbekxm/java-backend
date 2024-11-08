@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="Application" packages="">
+    <Appenders>
+        <!-- JSON structure log file -->
+        <File name="JsonFile" fileName="c:/logs/app_log.json">
+            <JSONLayout complete="false" compact="true" eventEol="true"/>
+        </File>
+        <!-- Plain structure log file -->
+        <File name="PlainFile" fileName="c:/logs/app.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="JsonFile"/>
+            <AppenderRef ref="PlainFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,72 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jmp-spring-petclinic
+  labels:
+    helm.sh/chart: spring-petclinic-0.1.0
+    app.kubernetes.io/name: spring-petclinic
+    app.kubernetes.io/instance: jmp
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jmp-spring-petclinic
+  labels:
+    helm.sh/chart: spring-petclinic-0.1.0
+    app.kubernetes.io/name: spring-petclinic
+    app.kubernetes.io/instance: jmp
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: spring-petclinic
+    app.kubernetes.io/instance: jmp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmp-spring-petclinic
+  labels:
+    helm.sh/chart: spring-petclinic-0.1.0
+    app.kubernetes.io/name: spring-petclinic
+    app.kubernetes.io/instance: jmp
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: spring-petclinic
+      app.kubernetes.io/instance: jmp
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: spring-petclinic
+        app.kubernetes.io/instance: jmp
+    spec:
+      serviceAccountName: jmp-spring-petclinic
+      containers:
+        - name: spring-petclinic
+          image: spring-petclinic
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http

@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id "com.github.davidmc24.gradle.plugin.avro" version "1.9.1"
+    id 'org.springframework.boot' version '3.1.1'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.epam.jmp'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '19'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://maven.repository.redhat.com/earlyaccess/all/"
+    }
+}
+
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka:3.1.1'
+    implementation 'org.apache.avro:avro:1.11.0'
+    implementation 'javax.xml.bind:jaxb-api:2.2.11'
+    implementation 'com.sun.xml.bind:jaxb-core:2.2.11'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.2.11'
+    implementation 'javax.activation:activation:1.1.1'
+//    implementation 'org.springframework.boot:spring-boot-starter-parent:3.0.11'
+    implementation "org.springframework.boot:spring-boot-starter-parent:${property('spring-boot-version')}"
+
+    implementation 'io.confluent:kafka-avro-serializer:5.3.0'
+    implementation 'io.confluent:kafka-schema-registry-client:5.3.0'
+
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+tasks.withType(JavaExec) {
+    jvmArgs("--enable-preview")
+}

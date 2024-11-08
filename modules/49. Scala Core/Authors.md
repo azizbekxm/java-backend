@@ -1,0 +1,9 @@
+Dmitrii Shevchenko
+Grigorii Berezin
+Nikita Miazin
+Yurii Bohomolov
+Alexander Savin1
+Ilia Onishchenko
+Mariia Nesvit
+Danila Goloshchapov
+Anton Khramtsov

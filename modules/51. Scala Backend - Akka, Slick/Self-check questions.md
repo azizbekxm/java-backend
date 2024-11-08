@@ -1,0 +1,4 @@
+- What is route in Akka HTTP?
+- What is directive in Akka HTTP?
+- What is App in Scala, how do we use it?
+- What is Actor System in Akka?

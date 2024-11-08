@@ -1,0 +1,4 @@
+- What does 'effect' mean in functional programming?
+- What is App in Scala, how do we use it?
+- What is fiber in ZIO library?
+- Explain ZIO data type

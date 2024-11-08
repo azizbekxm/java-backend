@@ -1,0 +1,35 @@
+Questions:
+===============
+
+- What is the difference between "var" and "val"? 
+- Where should you use "var" and where "val"? 
+- What is a data class? What makes them so useful? How are they defined?
+- How to create a singleton? 
+- Explain the Null safety in Kotlin
+- What is a purpose of Companion Objects?
+- What is lateinit in Kotlin and when would you use it? 
+- When to use lateinit over lazy initialization in Kotlin?
+- Explain advantages of "when" vs "switch" in Kotlin
+- What are the advantages of Kotlin over Java? 
+- What are some disadvantages of Kotlin?
+- What is the difference between "open" and "public" in Kotlin?
+- What is the difference between "const" and "val"?
+- When is the Elvis operator?
+- IntArray and Array<Int> are they in Kotlin interchangeably?
+- What is the Kotlin double-bang (!!) operator? 
+- What is the difference between “*” and “Any” in Kotlin generics? 
+- How to implement Builder pattern in Kotlin?   
+- What is the Unit type?
+- What is the Nothing type? 
+- What’s the entry point of every Kotlin Program?
+- What is extensions and how does it work?
+- What’s the Target Platform of Kotlin? How is Kotlin-Java interoperability possible?
+- Does Kotlin allow us to use primitive types such as int, float, double?
+- How is a function declared? Why are Kotlin functions known as top-level functions?
+- What’s the difference between == and === operators in Kotlin?
+- List down the visibility modifiers available in Kotlin. What’s the default visibility modifier?
+- What’s init block in Kotlin
+- How does string interpolation work in Kotlin? Explain with a code snippet?
+- What are destructuring declarations in Kotlin? Explain it with an example.
+- What’s the difference between inline and infix functions? Give an example of each.
+- What is the mutable and immutable collections?

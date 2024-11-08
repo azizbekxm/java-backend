@@ -1,0 +1,6 @@
+Try to understand how can we use Factory Design pattern to explain how different animals make the sound.
+
+Hints: 
+
+Interface : Animal
+Subclasses : Dog, Cat, Cow.

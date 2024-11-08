@@ -1,0 +1,10 @@
+- What is pure function?
+- What is high-order function?
+- What is case class in Scala?
+- What is the difference between val and lazy val?
+- What are the benefits of work with immutable data?
+- How to create singleton object in Scala?
+- What is trait in Scala?
+- What is an Option in Scala?
+- What’s the difference ‘Nil’, ‘Null’, ‘None’ and ’Nothing’ in Scala?
+- What is Scala Future?

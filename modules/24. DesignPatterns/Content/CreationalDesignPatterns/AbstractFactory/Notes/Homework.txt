@@ -1,0 +1,5 @@
+Please try to implement abstract factory pattern which draws different geometric shapes, including 2D or 3D
+
+Hint : Write an interface Shape and 2D and 3D Factory classes. 
+Line class comes under 2D and Triangle class comes under 3D.
+

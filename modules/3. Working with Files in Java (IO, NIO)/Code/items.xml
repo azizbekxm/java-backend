@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<books>
+    <book id="1" pages="800">
+        <title>Java 7</title>
+        <author>Shildt</author>
+    </book>
+    <book id="2" pages="400">
+        <title>Scala for impatient</title>
+        <author>Horstmann</author>
+    </book>
+</books>

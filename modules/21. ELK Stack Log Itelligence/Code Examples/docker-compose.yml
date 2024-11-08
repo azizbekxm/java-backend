@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+    event-service:
+        image: siarheikarpenka/event-service:8.0.0-SNAPSHOT
+        container_name: event-service
+        environment:
+          - JAVA_OPTS=-Xms1000m -Xmx4500m -XX:+UseG1GC -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDetails -Xloggc:garbage-collection.log
+        restart: always
+        mem_limit: 2048m
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "1000m"
+            max-file: "10"
+        ports:
+          - 8080:8080
+        networks:
+          - event-service
+
+networks:
+  event-service:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.61.0.0/16
